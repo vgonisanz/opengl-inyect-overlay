@@ -5,7 +5,7 @@ all: init full overlay
 	@echo "Compilation end!"
 
 init:
-	@mkdir ${BUILD_PATH}
+	@mkdir -p ${BUILD_PATH}
 
 overlay: binary.c overlay.c
 	echo "Compiling lib"
