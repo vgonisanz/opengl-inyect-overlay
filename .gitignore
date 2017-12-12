@@ -1,3 +1,6 @@
+# Generated build
+build/
+
 # Prerequisites
 *.d
 
