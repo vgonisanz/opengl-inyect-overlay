@@ -27,4 +27,4 @@ run-binary:
 	${BUILD_PATH}/binary
 
 run-inyection:
-	LD_PRELOAD=./build/liboverlay.so ./build/binary
+	LD_PRELOAD=./${BUILD_PATH}/liboverlay.so ./${BUILD_PATH}/binary
