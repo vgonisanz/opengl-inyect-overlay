@@ -39,12 +39,16 @@ make install
 mkdir build && cd build
 cmake ..
 make -j4
+make install
 ```
+
 
 # How to use
 
 This code has been tested only in GNU/Linux. Just compile using ```make```. This command will generate a build folder containing 3 executables:
 
+* ./full
+* LD_PRELOAD=./../lib/libsimpleoverlay.so ./binary
 
 To run you can use:
 
