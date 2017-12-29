@@ -1,18 +1,50 @@
 # Steam-like overlay
 
-This project is a draft to test how create a library with OpenGL and apply over another binary bypassing glfwSwapBuffers.
+SLO project is a draft to test how create a library with OpenGL and apply over another binary bypassing glfwSwapBuffers.
 
 # Dependencies
 
-* ftgl-devel
+## GLFW
+
+Install devel version
+
+```
+sudo dnf install glfw-devel.x86_64
+```
+
+## Freetype
+
+...
+
+## nanogui
+
+It is a repository to create simple GUI based on OpenGL. Use GLFW as dependency!
+
+* Note I: Do the following commands where you want to put the dependencies source code.
+* Note II: Change path ```~/install/nanogui``` for your desired installing path.
+* Note III: This path shall be provided when cmake this project. If not error ```Provide dependencies path``` will be generated.
+
+```
+git clone --recursive git@github.com:wjakob/nanogui.git
+mkdir build && cd build
+cmake ..
+make
+make -j4
+make install
+```
+
+# Compiling
+
+```
+mkdir build && cd build
+cmake ..
+make -j4
+```
 
 # How to use
 
 This code has been tested only in GNU/Linux. Just compile using ```make```. This command will generate a build folder containing 3 executables:
 
-* full: The final expected result without inyect the dinamic library.
-* liboverlay.so: A Library to catch glfwSwapBuffers, render a text, and calling the original glfwSwapBuffers.
-* binary: Raw test OpenGL app with a rotating triangle. We will add something here with the inyection.
 
 To run you can use:
 
