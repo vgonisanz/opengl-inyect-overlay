@@ -4,9 +4,6 @@ cmake_minimum_required (VERSION 2.8.12)
 # ------------------------------------------------------------------------------------------------------
 include(CheckCXXCompilerFlag)
 include(CheckCXXSourceRuns)
-
-#find_package(glfw3 3.2 REQUIRED)
-
 include(FindFreetype)
 
 if(${FREETYPE_FOUND})

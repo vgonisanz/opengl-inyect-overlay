@@ -44,12 +44,19 @@ make install
 
 # How to use
 
-After compile and install (default path install inside build folder) go to install path an execute:
+After compile and install (default path install inside build folder) go to install path an execute them:
+
+## Concept example
+
+This is a basic example for inyection:
 
 * ```./full```: If you want to see the expected result WITHOUT inyection code. This executable shows a simple OpenGL app.
 * ```./binary```: If you want to see the a simple OpenGL app. We will use this binary to overlay a library.
 * ```LD_PRELOAD=./../lib/libsimpleoverlay.so ./binary```: This command will inyect shared library ```libsimpleoverlay.so``` into raw binary ```binary```. This combination shows how inyect a library to parse swapbuffers and keyboard into a GLFW app.
-* **steam schema** **TODO**
+
+## Steamlike
+
+**steam schema** **TODO**
 
 # Based on
 

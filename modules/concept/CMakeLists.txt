@@ -34,9 +34,9 @@ add_library(${PROJ_NAME} SHARED ${${PROJ_NAME}_HEADERS} ${${PROJ_NAME}_SRC} )
 # Module step VII: Specify rules to run at install time. Copy generated library and PUBLIC headers to a destination.
 # ------------------------------------------------------------------------------------------------------
 install(FILES ${${PROJ_NAME}_HEADERS}
-        DESTINATION "${CMAKE_INSTALL_PREFIX}/include/${PROJ_NAME}"
+        DESTINATION "${CMAKE_INSTALL_PREFIX}/concept/include/${PROJ_NAME}"
         )
 
 install(TARGETS ${PROJ_NAME}
-        DESTINATION "${CMAKE_INSTALL_PREFIX}/lib"
+        DESTINATION "${CMAKE_INSTALL_PREFIX}/concept/lib"
         )
