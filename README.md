@@ -6,7 +6,7 @@ SLO project is a draft to test how create a library with OpenGL and apply over a
 
 ## GLFW
 
-Install devel version
+Install devel version. In example for Fedora:
 
 ```
 sudo dnf install glfw-devel.x86_64
@@ -18,7 +18,7 @@ sudo dnf install glfw-devel.x86_64
 
 ## nanogui
 
-It is a repository to create simple GUI based on OpenGL. Use GLFW as dependency!
+It is a repository to create simple GUI based on OpenGL. Use GLFW as dependency! This is required to use a sample of steamlike overlay.
 
 * Note I: Do the following commands where you want to put the dependencies source code.
 * Note II: Change path ```~/install/nanogui``` for your desired installing path.
@@ -42,19 +42,14 @@ make -j4
 make install
 ```
 
-
 # How to use
 
-This code has been tested only in GNU/Linux. Just compile using ```make```. This command will generate a build folder containing 3 executables:
+After compile and install (default path install inside build folder) go to install path an execute:
 
-* ./full
-* LD_PRELOAD=./../lib/libsimpleoverlay.so ./binary
-
-To run you can use:
-
-* ```make run-full```: This command execute expected result WITHOUT inyection.
-* ```make run-binary```: This command just execute raw binary.
-* ```make run-inyection```: This command will inyect the shared library into the raw binary.
+* ```./full```: If you want to see the expected result WITHOUT inyection code. This executable shows a simple OpenGL app.
+* ```./binary```: If you want to see the a simple OpenGL app. We will use this binary to overlay a library.
+* ```LD_PRELOAD=./../lib/libsimpleoverlay.so ./binary```: This command will inyect shared library ```libsimpleoverlay.so``` into raw binary ```binary```. This combination shows how inyect a library to parse swapbuffers and keyboard into a GLFW app.
+* **steam schema** **TODO**
 
 # Based on
 
