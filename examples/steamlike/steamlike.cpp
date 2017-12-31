@@ -36,9 +36,10 @@ static void initialize()
 
     /* Callback error */
     glfwSetErrorCallback(error_callback);
-    if (!glfwInit())
+    int result = glfwInit();
+    if (result <= 0)
     {
-        printf("Aborting execution: Cannot glfwInit");
+        printf("Aborting execution: Cannot glfwInit with error: %d\n", result);
         exit(EXIT_FAILURE);
     }
 

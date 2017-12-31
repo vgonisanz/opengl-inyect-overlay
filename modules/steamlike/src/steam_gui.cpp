@@ -15,16 +15,19 @@ int glfwInit(void)
 {
     printf("Initialize original glfwInit...\n");
 
-    (void)glfwParser::parseFunction(reinterpret_cast<void **>(&glfwParser::_glfwInit), glfw_library_name, "glfwInit");
+    if(!glfwParser::parseFunction(reinterpret_cast<void **>(&glfwParser::_glfwInit), glfw_library_name, "glfwInit")) return -1;
 
-    glfwParser::_glfwInit();
-
+    if(GLFW_FALSE == glfwParser::_glfwInit())
+    {
+        printf("Error in original glfwInit\n");
+        return GLFW_FALSE;
+    }
     printf("glfwInit completed!, trying to parse functions...\n");
 
-    (void)glfwParser::parseFunction(reinterpret_cast<void **>(&glfwParser::_glfwSetKeyCallback), glfw_library_name, "glfwSetKeyCallback");
-    (void)glfwParser::parseFunction(reinterpret_cast<void **>(&glfwParser::_glfwSwapBuffers), glfw_library_name, "glfwSwapBuffers");
+    if(!glfwParser::parseFunction(reinterpret_cast<void **>(&glfwParser::_glfwSetKeyCallback), glfw_library_name, "glfwSetKeyCallback")) return -2;
+    if(!glfwParser::parseFunction(reinterpret_cast<void **>(&glfwParser::_glfwSwapBuffers), glfw_library_name, "glfwSwapBuffers")) return -3;
 
-    /* How check if init ok without check everytime??? */
+    return GLFW_TRUE;
 }
 
 GLFWkeyfun glfwSetKeyCallback(GLFWwindow *window, GLFWkeyfun cbfun)

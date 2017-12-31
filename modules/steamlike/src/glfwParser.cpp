@@ -20,10 +20,12 @@ namespace glfwParser
                     *original_pointer_to_function = reinterpret_cast<void *>(symbol_pointer);
                     dlclose(handle);
                     printf("Handled %s!\n", symbol);
+                    return true;
                 }
                 else
                 {
                     printf("Cannot handle %s!\n", symbol);
+                    return false;
                 }
             }
             else
@@ -31,7 +33,6 @@ namespace glfwParser
                 printf("Cannot open %s!\n", library_name);
                 return false;
             }
-            return true;
         }
         return false;
     }
