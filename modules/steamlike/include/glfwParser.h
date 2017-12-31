@@ -6,11 +6,15 @@
 
 namespace glfwParser
 {
-    typedef int (*initFunction)(void);
-    typedef void (*swapBuffersFunction)(GLFWwindow *window);
+    typedef int (*glfwInitFunction)(void);
+    typedef void (*glfwSwapBuffersFunction)(GLFWwindow *window);
+    typedef GLFWkeyfun (*glfwSetKeyCallbackFunction)(GLFWwindow *window, GLFWkeyfun cbfun);
+    typedef void (*GLFWkeyfunFunction)(GLFWwindow *, int key, int scancode, int action, int mods);
 
-    static initFunction _glfwInit = nullptr;
-    static swapBuffersFunction _glfwSwapBuffers = nullptr;
+    static glfwInitFunction _glfwInit = nullptr;
+    static glfwSwapBuffersFunction _glfwSwapBuffers = nullptr;
+    static glfwSetKeyCallbackFunction _glfwSetKeyCallback = nullptr;
+    static GLFWkeyfunFunction _GLFWkeyfun = nullptr;
 
     bool parseFunction(void **original_pointer_to_function, const char *library_name, const char *symbol);
 }
