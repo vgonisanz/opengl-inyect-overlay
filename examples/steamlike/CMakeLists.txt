@@ -8,4 +8,4 @@ add_executable(${PROJ_NAME}            steamlike.cpp)
 
 target_link_libraries(${PROJ_NAME} ${STEAMLIKE_EXTRA_LIBS})
 
-install(TARGETS ${PROJ_NAME} DESTINATION "${CMAKE_INSTALL_PREFIX}/${PROJ_NAME}/bin")
+install(TARGETS ${PROJ_NAME} DESTINATION "${CMAKE_INSTALL_PREFIX}/steamlike/bin")

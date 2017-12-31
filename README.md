@@ -56,7 +56,8 @@ This is a basic example for inyection:
 
 ## Steamlike
 
-**steam schema** **TODO**
+* ```LD_PRELOAD=./../lib/libsteam_overlay.so ./fakesteamgame```: This command will inyect shared library ```libsteam_overlay.so``` into raw binary ```fakesteamgame```. This combination shows how inyect a library to parse swapbuffers and keyboard into a GLFW app.
+
 
 # Based on
 
