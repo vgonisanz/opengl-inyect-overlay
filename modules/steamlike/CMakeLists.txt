@@ -7,13 +7,14 @@ project(${PROJ_NAME})
 # Module step II: Add the given directories to those the compiler uses to search for include files
 # ------------------------------------------------------------------------------------------------------
 include_directories( ${FREETYPE_INCLUDE_DIRS} )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/include )
 
 # Module step III: Create variables with all includes and sources. You can add them manually in a VAR.
 # ------------------------------------------------------------------------------------------------------
-#FILE(GLOB ${PROJ_NAME}_HEADERS
-#    "include/*.h"
-#    "include/*.hpp"
-#)
+FILE(GLOB ${PROJ_NAME}_HEADERS
+    "include/*.h"
+    "include/*.hpp"
+)
 file(GLOB ${PROJ_NAME}_SRC
     "src/*.cpp"
 )

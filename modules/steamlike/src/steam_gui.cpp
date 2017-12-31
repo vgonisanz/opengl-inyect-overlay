@@ -1,50 +1,35 @@
 #include <FTGL/ftgl.h>
 #include <GLFW/glfw3.h>
 
-#include <dlfcn.h>
-
 #include <stdio.h>
 
-typedef void (*swapBuffersFunction)(GLFWwindow *window);
+#include <glfwParser.h>
 
-static swapBuffersFunction _glfwSwapBuffers = nullptr;
-
+// int 	glfwInit (void)
 // Window *window = new Window(this, "Button demo");
 //         window->setPosition(Vector2i(15, 15));
 //         window->setLayout(new GroupLayout());
 
 void performOverlay()
 {
-    printf("performOverlay\n");
+    //printf("performOverlay\n");
 }
 
-bool parseFunction(void **original_pointer_to_function, const char *library_name, int flags, const char *symbol)
+int glfwInit(void)
 {
-    if (*original_pointer_to_function == nullptr)
-    {
-        printf("Parsing %s...\n", symbol);
+    printf("glfwInit detected, trying to parse functions...\n");
 
-        void *handle = dlopen(library_name, flags);
-        if (handle)
-        {
-            printf("Handled %s!\n", symbol);
-            void *symbol_pointer = dlsym(handle, symbol);
-            *original_pointer_to_function = reinterpret_cast<void *>(symbol_pointer);
-            dlclose(handle);
-        }
-        else
-        {
-            printf("Cannot handle %s!\n", symbol);
-            return false;
-        }
-        return true;
-    }
-    return false;
+    const char *glfw_library_name = "libglfw.so";
+    const char *glfw_library_name_invent = "libglfwinvent.so";
+    
+    (void)glfwParser::parseFunction(reinterpret_cast<void **>(&glfwParser::_glfwInit), glfw_library_name, "glfwInit");
+    (void)glfwParser::parseFunction(reinterpret_cast<void **>(&glfwParser::_glfwSwapBuffers), glfw_library_name, "glfwSwapBuffers");
+
+    glfwParser::_glfwInit();    /* Continue with normal glfw init */
 }
 
 void glfwSwapBuffers(GLFWwindow *window)
 {
-    (void)parseFunction(reinterpret_cast<void **>(&_glfwSwapBuffers), "libglfw.so", RTLD_LAZY, "glfwSwapBuffers");
     performOverlay();
-    _glfwSwapBuffers(window);
+    glfwParser::_glfwSwapBuffers(window);
 }
