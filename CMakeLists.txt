@@ -19,6 +19,10 @@ find_package(OpenGL REQUIRED)
 # ------------------------------------------------------------------------------------------------------
 set(PROJ_MAIN_NAME opengl-steamlike-overlay)
 
+# Required libraries, flags, and include files for compiling and linking against STEAMLIKE (all targets)
+set(STEAMLIKE_EXTRA_LIBS "")
+set(STEAMLIKE_EXTRA_DEFS "")
+set(STEAMLIKE_EXTRA_INCS "")
 set(RESOURCES_PATH "${CMAKE_CURRENT_SOURCE_DIR}/resources" CACHE PATH "Setting resources path" FORCE)
 
 if (CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
@@ -27,6 +31,7 @@ endif()
 
 message("CMAKE_INSTALL_PREFIX: ${CMAKE_INSTALL_PREFIX}")
 
+list(APPEND STEAMLIKE_EXTRA_LIBS glfw ftgl ${OPENGL_gl_LIBRARY})
 
 # Project step III: Add modules
 # ------------------------------------------------------------------------------------------------------

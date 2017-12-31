@@ -3,7 +3,7 @@ project(full)
 
 include_directories(${FREETYPE_INCLUDE_DIRS})
 add_executable(full full.c)
-target_link_libraries(full glfw ftgl ${OPENGL_gl_LIBRARY})
+target_link_libraries(full ${STEAMLIKE_EXTRA_LIBS})
 
 install(TARGETS full DESTINATION "${CMAKE_INSTALL_PREFIX}/concept/bin")
 
@@ -12,7 +12,7 @@ project(binary)
 
 include_directories(${FREETYPE_INCLUDE_DIRS})
 add_executable(binary binary.c)
-target_link_libraries(binary glfw ftgl ${OPENGL_gl_LIBRARY})
+target_link_libraries(binary ${STEAMLIKE_EXTRA_LIBS})
 
 install(TARGETS binary DESTINATION "${CMAKE_INSTALL_PREFIX}/concept/bin")
 
