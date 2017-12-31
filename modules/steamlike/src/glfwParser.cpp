@@ -25,13 +25,11 @@ namespace glfwParser
                 else
                 {
                     printf("Cannot handle %s!\n", symbol);
-                    return false;
                 }
             }
             else
             {
                 printf("Cannot open %s!\n", library_name);
-                return false;
             }
         }
         return false;

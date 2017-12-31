@@ -3,11 +3,9 @@
 
 #include <steam_gui.h>
 #include <glfwParser.h>
+#include <overlay.h>
 
-// int 	glfwInit (void)
-// Window *window = new Window(this, "Button demo");
-//         window->setPosition(Vector2i(15, 15));
-//         window->setLayout(new GroupLayout());
+Overlay ui;
 
 const char *glfw_library_name = "libglfw.so";
 
@@ -27,6 +25,7 @@ int glfwInit(void)
     if(!glfwParser::parseFunction(reinterpret_cast<void **>(&glfwParser::_glfwSetKeyCallback), glfw_library_name, "glfwSetKeyCallback")) return -2;
     if(!glfwParser::parseFunction(reinterpret_cast<void **>(&glfwParser::_glfwSwapBuffers), glfw_library_name, "glfwSwapBuffers")) return -3;
 
+    ui.init();
     return GLFW_TRUE;
 }
 
@@ -39,17 +38,13 @@ GLFWkeyfun glfwSetKeyCallback(GLFWwindow *window, GLFWkeyfun cbfun)
 
 void glfwSwapBuffers(GLFWwindow *window)
 {
-    performOverlay();
+    ui.update();
     glfwParser::_glfwSwapBuffers(window);
 }
 
 void performInput(GLFWwindow* window, int key, int scancode, int action, int mods)
 {
     printf("performInput: %d\n", key);
+    //ui.input();
     glfwParser::_GLFWkeyfun(window, key, scancode, action, mods);
-}
-
-void performOverlay()
-{
-    //printf("performOverlay\n");
 }

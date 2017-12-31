@@ -25,6 +25,10 @@ It is a repository to create simple GUI based on OpenGL. Use GLFW as dependency!
 * Note III: This path shall be provided when cmake this project. If not error ```Provide dependencies path``` will be generated.
 
 ```
+sudo dnf install eigen3-devel.noarch 
+```
+
+```
 git clone --recursive git@github.com:wjakob/nanogui.git
 mkdir build && cd build
 cmake ..

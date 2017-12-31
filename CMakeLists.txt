@@ -14,6 +14,7 @@ endif()
 
 find_package(glfw3 3.2 REQUIRED)
 find_package(OpenGL REQUIRED)
+find_package( Eigen3 REQUIRED )
 
 # Project step II: Set up project name
 # ------------------------------------------------------------------------------------------------------
@@ -31,6 +32,7 @@ endif()
 
 message("CMAKE_INSTALL_PREFIX: ${CMAKE_INSTALL_PREFIX}")
 
+list(APPEND STEAMLIKE_EXTRA_INCS ${FREETYPE_INCLUDE_DIRS} ${EIGEN3_INCLUDE_DIR})
 list(APPEND STEAMLIKE_EXTRA_LIBS glfw ftgl ${OPENGL_gl_LIBRARY})
 
 # Project step III: Add modules
