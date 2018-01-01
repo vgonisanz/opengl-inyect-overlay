@@ -9,3 +9,4 @@ add_executable(${PROJ_NAME}            performance.cpp)
 target_link_libraries(${PROJ_NAME} ${STEAMLIKE_EXTRA_LIBS})
 
 install(TARGETS ${PROJ_NAME} DESTINATION "${CMAKE_INSTALL_PREFIX}/performance/bin")
+install(FILES ${RESOURCES_PATH}/font.ttf DESTINATION ${CMAKE_INSTALL_PREFIX}/performance/bin/resources)

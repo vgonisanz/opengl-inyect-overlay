@@ -100,7 +100,7 @@ void drawTriangle()
 int main(void)
 {
     initialize();
-    changeBackground(0.65f, 0.65f, 0.65f, 1.0f);
+    changeBackground(0.0f, 0.0f, 0.0f, 1.0f);
     update();
 
     while(!glfwWindowShouldClose(window))

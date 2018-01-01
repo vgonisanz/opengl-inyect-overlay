@@ -45,6 +45,6 @@ void glfwSwapBuffers(GLFWwindow *window)
 void performInput(GLFWwindow* window, int key, int scancode, int action, int mods)
 {
     printf("performInput: %d\n", key);
-    //ui.input();
+    ui.input(window, key, scancode, action, mods);
     glfwParser::_GLFWkeyfun(window, key, scancode, action, mods);
 }
